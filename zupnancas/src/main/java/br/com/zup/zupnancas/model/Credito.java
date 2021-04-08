@@ -11,14 +11,14 @@ public class Credito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(name = "valor_Dinheiro")
     private Double valor;
 
-    @Column
     private String descricao;
-
-    @Column
     private LocalDate dataDeEntrada;
+
+    @ManyToOne
+    private Saldo saldo;
 
     public Credito() {
     }
@@ -53,5 +53,13 @@ public class Credito {
 
     public void setDataDeEntrada(LocalDate dataDeEntrada) {
         this.dataDeEntrada = dataDeEntrada;
+    }
+
+    public Saldo getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Saldo saldo) {
+        this.saldo = saldo;
     }
 }

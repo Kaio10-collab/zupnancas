@@ -1,9 +1,9 @@
 package br.com.zup.zupnancas.model;
 
 import br.com.zup.zupnancas.Enum.Status;
-
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "contas")
@@ -13,11 +13,20 @@ public class Conta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "valor_Dinheiro")
     private Double valor;
+
     private String descricao;
     private LocalDate dataDeEntrada;
     private LocalDate dataDeVencimento;
+
     private Status statusEnum;
+
+    @ManyToOne
+    private Saldo saldo;
+
+    @ManyToMany
+    private List<Categoria> categoria;
 
     public Conta() {
     }
@@ -68,5 +77,21 @@ public class Conta {
 
     public void setStatusEnum(Status statusEnum) {
         this.statusEnum = statusEnum;
+    }
+
+    public Saldo getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Saldo saldo) {
+        this.saldo = saldo;
+    }
+
+    public List<Categoria> getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(List<Categoria> categoria) {
+        this.categoria = categoria;
     }
 }

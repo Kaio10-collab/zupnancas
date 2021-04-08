@@ -12,10 +12,10 @@ public class Saldo {
     @Id
     private String cpf;
 
-    @Column
+    @Column(name = "valor_Dinheiro")
     private Double valor;
 
-    @Column
+    @Column(name = "limite_Saldo")
     private Double limite;
 
     public Saldo() {
