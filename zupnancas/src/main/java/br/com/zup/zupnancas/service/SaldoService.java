@@ -20,6 +20,6 @@ public class SaldoService {
             if(saldo.getCpf() == null){
                 return saldoRepository.findAll();
             }
-            return saldoRepository.findByNome(saldo.getCpf());
+            return saldoRepository.findByCPF(saldo.getCpf());
         }
 }

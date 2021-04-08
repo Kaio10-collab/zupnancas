@@ -2,6 +2,7 @@ package br.com.zup.zupnancas.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "creditos")
@@ -19,6 +20,9 @@ public class Credito {
 
     @ManyToOne
     private Saldo saldo;
+
+    @ManyToMany
+    private List<Categoria> categorias;
 
     public Credito() {
     }
@@ -61,5 +65,13 @@ public class Credito {
 
     public void setSaldo(Saldo saldo) {
         this.saldo = saldo;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
     }
 }
