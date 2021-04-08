@@ -1,5 +1,6 @@
 package br.com.zup.zupnancas.service;
 
+import br.com.zup.zupnancas.dto.FiltroCategoriaDTO;
 import br.com.zup.zupnancas.model.Categoria;
 import br.com.zup.zupnancas.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class CategoriaService {
 
     public Iterable<Categoria> visualizarCategoriasCadastradas(FiltroCategoriaDTO filtro){
         if(filtro.getNome() == null){
-            return  categoriaRepository.findAll();
+            return categoriaRepository.findAll();
         }
         return categoriaRepository.findByNome(filtro.getNome());
     }

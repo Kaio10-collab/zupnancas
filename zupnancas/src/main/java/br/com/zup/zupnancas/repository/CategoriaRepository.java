@@ -4,4 +4,6 @@ import br.com.zup.zupnancas.model.Categoria;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CategoriaRepository extends CrudRepository<Categoria, Integer> {
+
+    Iterable<Categoria> findByNome(String nome);
 }

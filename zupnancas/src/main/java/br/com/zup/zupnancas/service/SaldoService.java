@@ -1,5 +1,6 @@
 package br.com.zup.zupnancas.service;
 
+import br.com.zup.zupnancas.dto.FiltroCategoriaDTO;
 import br.com.zup.zupnancas.model.Saldo;
 import br.com.zup.zupnancas.repository.SaldoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,10 @@ public class SaldoService {
         return saldoRepository.save(saldo);
     }
 
-    public Saldo visualizarSaldo(Saldo saldo){
-
-    }
-
+    public Iterable<Saldo> visualizarSaldo(FiltroCategoriaDTO saldo){
+            if(saldo.getCpf() == null){
+                return saldoRepository.findAll();
+            }
+            return saldoRepository.findByNome(saldo.getCpf());
+        }
 }
