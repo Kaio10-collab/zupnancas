@@ -1,9 +1,7 @@
 package br.com.zup.zupnancas.service;
 
 import br.com.zup.zupnancas.dto.FiltroCategoriaDTO;
-import br.com.zup.zupnancas.model.Categoria;
 import br.com.zup.zupnancas.model.Credito;
-import br.com.zup.zupnancas.model.Saldo;
 import br.com.zup.zupnancas.repository.CreditoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface SaldoRepository extends CrudRepository<Saldo, String> {
 
     Iterable<Saldo> findByCPF(String cpf);
+
 }

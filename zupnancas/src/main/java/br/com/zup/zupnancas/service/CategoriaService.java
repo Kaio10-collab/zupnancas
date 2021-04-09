@@ -23,4 +23,8 @@ public class CategoriaService {
         }
         return categoriaRepository.findByNome(filtro.getNome());
     }
+
+    public void deletarCategoria(int id){
+        categoriaRepository.deleteById(id);
+    }
 }

@@ -13,20 +13,33 @@ public class ContaService {
     @Autowired
     private ContaRepository contaRepository;
 
+    @Autowired
+    private SaldoService saldoService;
+
     public Conta cadastrarConta(Conta conta){
         return contaRepository.save(conta);
     }
 
     public Conta atualizarConta(Conta conta){
-        Conta objconta = new Conta();
-
-        return objconta;
+        if (contaRepository.existsById(conta.getId())){
+           Conta objConta = cadastrarConta(conta);
+           return objConta;
         }
+       throw new RuntimeException("Conta não localizada!");
+   }
 
     public Iterable<Conta> pesquisarContasPorStatus(FiltroContaDTO status){
         if(status.getStatus() == null){
             return contaRepository.findAll();
         }
         return contaRepository.findByAllStatus(status.getStatus());
+    }
+
+    public Conta adicionarSaldo(Conta conta){
+        if(conta.getStatusEnum().equals((Status.PAGO))){
+            saldoService.debitarSaldo(conta);
+            contaRepository.save(conta);
+        }
+        return contaRepository.save(conta);
     }
 }
