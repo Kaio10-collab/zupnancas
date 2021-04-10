@@ -1,6 +1,6 @@
 package br.com.zup.zupnancas.service;
 
-import br.com.zup.zupnancas.dto.FiltroCategoriaDTO;
+import br.com.zup.zupnancas.dto.CategoriaDTO;
 import br.com.zup.zupnancas.model.Conta;
 import br.com.zup.zupnancas.model.Saldo;
 import br.com.zup.zupnancas.repository.SaldoRepository;
@@ -18,11 +18,11 @@ public class SaldoService {
         return saldoRepository.save(saldo);
     }
 
-    public Iterable<Saldo> visualizarSaldo(FiltroCategoriaDTO saldo){
-            if(saldo.getCpf() == null){
+    public Iterable<Saldo> visualizarSaldo(CategoriaDTO saldo){
+            if(saldo.getId() == null){
                 return saldoRepository.findAll();
             }
-            return saldoRepository.findByCPF(saldo.getCpf());
+            return saldoRepository.findById(saldo.getId());
         }
 
         public void debitarSaldo(Conta conta){

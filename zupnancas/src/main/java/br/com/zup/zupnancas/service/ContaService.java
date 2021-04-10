@@ -1,7 +1,7 @@
 package br.com.zup.zupnancas.service;
 
 import br.com.zup.zupnancas.Enum.Status;
-import br.com.zup.zupnancas.dto.FiltroContaDTO;
+import br.com.zup.zupnancas.dto.ContaDTO;
 import br.com.zup.zupnancas.model.Conta;
 import br.com.zup.zupnancas.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class ContaService {
        throw new RuntimeException("Conta não localizada!");
    }
 
-    public Iterable<Conta> pesquisarContasPorStatus(FiltroContaDTO status){
+    public Iterable<Conta> pesquisarContasPorStatus(ContaDTO status){
         if(status.getStatus() == null){
             return contaRepository.findAll();
         }

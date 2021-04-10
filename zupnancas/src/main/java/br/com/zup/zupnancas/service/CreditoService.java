@@ -1,6 +1,6 @@
 package br.com.zup.zupnancas.service;
 
-import br.com.zup.zupnancas.dto.FiltroCategoriaDTO;
+import br.com.zup.zupnancas.dto.CategoriaDTO;
 import br.com.zup.zupnancas.model.Credito;
 import br.com.zup.zupnancas.repository.CreditoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class CreditoService {
         throw new RuntimeException("Album não encontrado");
     }
 
-        public Iterable<Credito> pesquisarCreditosPelaCategorias(FiltroCategoriaDTO credito){
+        public Iterable<Credito> pesquisarCreditosPelaCategorias(CategoriaDTO credito){
             if(credito.getNome() == null){
                 return creditoRepository.findAll();
             }

@@ -2,11 +2,11 @@ package br.com.zup.zupnancas.dto;
 
 import br.com.zup.zupnancas.Enum.Status;
 
-public class FiltroContaDTO {
+public class ContaDTO {
 
     private Status status;
 
-    public FiltroContaDTO() {
+    public ContaDTO() {
     }
 
     public Status getStatus() {
