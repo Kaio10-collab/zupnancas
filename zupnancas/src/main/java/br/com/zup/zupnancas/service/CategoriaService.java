@@ -1,10 +1,10 @@
 package br.com.zup.zupnancas.service;
 
-import br.com.zup.zupnancas.dto.CategoriaDTO;
 import br.com.zup.zupnancas.model.Categoria;
 import br.com.zup.zupnancas.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service
 public class CategoriaService {
@@ -17,11 +17,12 @@ public class CategoriaService {
         return  objCategoria;
     }
 
-    public Iterable<Categoria> visualizarCategoriasCadastradas(CategoriaDTO filtro){
-        if(filtro.getNome() == null){
-            return categoriaRepository.findAll();
+    public Categoria visualizarCategoriasCadastradas(Categoria categoria){
+        Optional<Categoria> optionalCategoria = categoriaRepository.findById(categoria.getId());
+        if (optionalCategoria == null) {
+            throw new RuntimeException("Categoria não localizada");
         }
-        return categoriaRepository.findByNome(filtro.getNome());
+        return optionalCategoria.get();
     }
 
     public void deletarCategoria(int id){

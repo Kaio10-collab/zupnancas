@@ -1,6 +1,6 @@
 package br.com.zup.zupnancas.Enum;
 
-public enum Status {
+public enum StatusEnum {
 
     AGUARDANDO,
     PAGO,

@@ -1,6 +1,5 @@
 package br.com.zup.zupnancas.service;
 
-import br.com.zup.zupnancas.dto.CategoriaDTO;
 import br.com.zup.zupnancas.model.Conta;
 import br.com.zup.zupnancas.model.Saldo;
 import br.com.zup.zupnancas.repository.SaldoRepository;
@@ -18,12 +17,14 @@ public class SaldoService {
         return saldoRepository.save(saldo);
     }
 
-    public Iterable<Saldo> visualizarSaldo(CategoriaDTO saldo){
-            if(saldo.getId() == null){
-                return saldoRepository.findAll();
-            }
-            return saldoRepository.findById(saldo.getId());
+    public Saldo visualizarSaldoPorCPF(Saldo saldo) {
+        Optional<Saldo> optionalSaldo = saldoRepository.findById(saldo.getCpf());
+
+        if (optionalSaldo == null) {
+            throw new RuntimeException("saldo não compatível com o cpf mencionado");
         }
+        return optionalSaldo.get();
+    }
 
         public void debitarSaldo(Conta conta){
         Optional<Saldo> optionalSaldo = saldoRepository.findById(conta.getSaldo().getCpf());

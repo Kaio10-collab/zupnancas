@@ -26,13 +26,14 @@ public class CategoriaDTO {
         this.id = id;
     }
 
-    public static CategoriaDTO converterDTOParaModel(Categoria categoria){
-        CategoriaDTO categoriaDTO = new CategoriaDTO();
+    public Categoria converterDTOParaModel(){
 
-        categoriaDTO.setNome(categoria.getNome());
-        categoriaDTO.setId(categoria.getId());
+        Categoria categoria = new Categoria();
 
-        return categoriaDTO;
+        categoria.setNome(this.nome);
+        categoria.setId(this.id);
+
+        return categoria;
     }
 
 }

@@ -1,6 +1,6 @@
 package br.com.zup.zupnancas.model;
 
-import br.com.zup.zupnancas.Enum.Status;
+import br.com.zup.zupnancas.Enum.StatusEnum;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -20,7 +20,7 @@ public class Conta {
     private LocalDate dataDeEntrada;
     private LocalDate dataDeVencimento;
 
-    private Status statusEnum;
+    private StatusEnum statusEnum;
 
     @ManyToOne
     private Saldo saldo;
@@ -71,11 +71,11 @@ public class Conta {
         this.dataDeVencimento = dataDeVencimento;
     }
 
-    public Status getStatusEnum() {
+    public StatusEnum getStatusEnum() {
         return statusEnum;
     }
 
-    public void setStatusEnum(Status statusEnum) {
+    public void setStatusEnum(StatusEnum statusEnum) {
         this.statusEnum = statusEnum;
     }
 
