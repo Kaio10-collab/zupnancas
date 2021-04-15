@@ -17,8 +17,8 @@ public class CreditoService {
         return creditoRepository.save(credito);
     }
 
-    public Credito pesquisarTodosCreditos (int id){
-        Optional<Credito> optionalCredito = creditoRepository.findById(id);
+    public Credito pesquisarTodosCreditos(Credito credito){
+        Optional<Credito> optionalCredito = creditoRepository.findById();
 
         if (optionalCredito.isPresent()) {
             return optionalCredito.get();

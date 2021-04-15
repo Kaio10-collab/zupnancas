@@ -22,9 +22,9 @@ public class CategoriaController {
         return categoriaService.cadastrarCategoria(categoria);
     }
 
-    @GetMapping("{id}/")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Categoria visualizarCategorias(@PathVariable Integer id){
+    public Categoria visualizarCategorias(Integer id){
         try {
             Categoria categoria = new Categoria();
             categoria.setId(id);
