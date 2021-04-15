@@ -20,7 +20,7 @@ public class Creditocontroller {
     }
 
     @GetMapping
-    public Credito pesquisaTodosOsCreditos(Credito credito){
-        return creditoService.pesquisarTodosCreditos(credito);
+    public Iterable<Credito> pesquisaTodosOsCreditos(){
+        return creditoService.pesquisarTodosCreditos();
     }
 }

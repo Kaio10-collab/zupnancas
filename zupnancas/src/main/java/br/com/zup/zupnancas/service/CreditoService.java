@@ -5,7 +5,6 @@ import br.com.zup.zupnancas.model.Credito;
 import br.com.zup.zupnancas.repository.CreditoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
 @Service
 public class CreditoService {
@@ -17,13 +16,9 @@ public class CreditoService {
         return creditoRepository.save(credito);
     }
 
-    public Credito pesquisarTodosCreditos(Credito credito){
-        Optional<Credito> optionalCredito = creditoRepository.findById();
+    public Iterable<Credito> pesquisarTodosCreditos(){
+        return creditoRepository.findAll();
 
-        if (optionalCredito.isPresent()) {
-            return optionalCredito.get();
-        }
-        throw new RuntimeException("Album não encontrado");
     }
 
         public Iterable<Credito> pesquisarCreditosPelaCategorias(CategoriaDTO credito){

@@ -65,15 +65,15 @@ public class CreditoDTO {
         this.cpf = cpf;
     }
 
-    public Credito converterCreditoDTOParaModel(Credito credito) {
+    public Credito converterCreditoModelParaDTO(Credito credito) {
 
         Credito objCredito = new Credito();
         Saldo saldo = new Saldo();
+        saldo.setCpf(cpf);
 
         credito.setId(this.id);
         credito.setValor(this.valor);
         credito.setDescricao(this.descricao);
-        saldo.setCpf(cpf);
         credito.setSaldo(saldo);
         credito.setCategorias(this.categoriaList);
 

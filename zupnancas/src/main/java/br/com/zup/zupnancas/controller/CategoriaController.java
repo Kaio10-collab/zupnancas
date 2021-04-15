@@ -24,14 +24,9 @@ public class CategoriaController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Categoria visualizarCategorias(Integer id){
-        try {
-            Categoria categoria = new Categoria();
-            categoria.setId(id);
-            return categoriaService.visualizarCategoriasCadastradas(categoria);
-        }catch (RuntimeException e){
-            throw new RuntimeException("Categoria não encontrada");
-        }
+    public Iterable<CategoriaDTO> visualizarCategorias(@ModelAttribute CategoriaDTO id){
+        Iterable<Categoria> categorias = categoriaService.visualizarCategoriasCadastradas(id);
+        return CategoriaDTO.converterIterableModelParaDTO(categorias);
     }
 
     @DeleteMapping("{id}/")

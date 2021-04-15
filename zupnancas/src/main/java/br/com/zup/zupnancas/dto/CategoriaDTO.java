@@ -1,11 +1,13 @@
 package br.com.zup.zupnancas.dto;
 
 import br.com.zup.zupnancas.model.Categoria;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoriaDTO {
 
     private String nome;
-    private int id;
+    private Integer id;
 
     public CategoriaDTO() {
     }
@@ -18,11 +20,11 @@ public class CategoriaDTO {
         this.nome = nome;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,4 +38,19 @@ public class CategoriaDTO {
         return categoria;
     }
 
+    public static Iterable<CategoriaDTO> converterIterableModelParaDTO(Iterable<Categoria> categorias){
+        List<CategoriaDTO> categoriaDTOS = new ArrayList<>();
+
+        for (Categoria categoria:categorias){
+            categoriaDTOS.add(converterModelParaDTO(categoria));
+        }
+        return categoriaDTOS;
+    }
+
+    public static CategoriaDTO converterModelParaDTO(Categoria categoria){
+        CategoriaDTO categoriaDTO = new CategoriaDTO();
+        categoriaDTO.setId(categoria.getId());
+        categoriaDTO.setNome(categoria.getNome());
+        return categoriaDTO;
+    }
 }
