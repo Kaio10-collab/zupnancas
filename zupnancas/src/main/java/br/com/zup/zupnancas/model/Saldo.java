@@ -1,15 +1,13 @@
 package br.com.zup.zupnancas.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "saldos")
 public class Saldo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String cpf;
 
     @Column(name = "valor_Dinheiro")

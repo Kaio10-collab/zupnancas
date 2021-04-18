@@ -17,13 +17,8 @@ public class SaldoService {
         return saldoRepository.save(saldo);
     }
 
-    public Saldo visualizarSaldoPorCPF(Saldo saldo) {
-        Optional<Saldo> optionalSaldo = saldoRepository.findById(saldo.getCpf());
-
-        if (optionalSaldo == null) {
-            throw new RuntimeException("saldo não compatível com o cpf mencionado");
-        }
-        return optionalSaldo.get();
+    public Iterable<Saldo> visualizarTodosOsSaldos() {
+        return saldoRepository.findAll();
     }
 
         public void debitarSaldo(Conta conta){

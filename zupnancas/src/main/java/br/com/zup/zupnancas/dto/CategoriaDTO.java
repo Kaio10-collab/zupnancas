@@ -7,7 +7,6 @@ import java.util.List;
 public class CategoriaDTO {
 
     private String nome;
-    private Integer id;
 
     public CategoriaDTO() {
     }
@@ -20,21 +19,12 @@ public class CategoriaDTO {
         this.nome = nome;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Categoria converterDTOParaModel(){
 
         Categoria categoria = new Categoria();
 
         categoria.setNome(this.nome);
-        categoria.setId(this.id);
-
         return categoria;
     }
 
@@ -49,7 +39,6 @@ public class CategoriaDTO {
 
     public static CategoriaDTO converterModelParaDTO(Categoria categoria){
         CategoriaDTO categoriaDTO = new CategoriaDTO();
-        categoriaDTO.setId(categoria.getId());
         categoriaDTO.setNome(categoria.getNome());
         return categoriaDTO;
     }

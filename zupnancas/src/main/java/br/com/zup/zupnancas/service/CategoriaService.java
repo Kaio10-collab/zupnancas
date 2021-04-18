@@ -17,9 +17,9 @@ public class CategoriaService {
         return  objCategoria;
     }
 
-    public Iterable<Categoria> visualizarCategoriasCadastradas(CategoriaDTO categoria){
+    public Iterable<Categoria> visualizarCategoriasCadastradas(CategoriaDTO categoriaDTO){
 
-        if (categoria.getId() == null ) {
+        if (categoriaDTO.getNome() == null ) {
             return categoriaRepository.findAll();
         }
         return categoriaRepository.findAll();

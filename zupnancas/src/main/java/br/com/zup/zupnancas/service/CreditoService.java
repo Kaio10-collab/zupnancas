@@ -18,13 +18,12 @@ public class CreditoService {
 
     public Iterable<Credito> pesquisarTodosCreditos(){
         return creditoRepository.findAll();
-
     }
 
-        public Iterable<Credito> pesquisarCreditosPelaCategorias(CategoriaDTO credito){
-            if(credito.getNome() == null){
+        public Iterable<Credito> pesquisarCreditosPelaCategorias(CategoriaDTO categoriaDTO){
+            if(categoriaDTO.getNome() == null){
                 return creditoRepository.findAll();
             }
-            return creditoRepository.findAllByCategoriasNome(credito.getNome());
+            return creditoRepository.findAllByCategoriasNome(categoriaDTO.getNome());
         }
 }

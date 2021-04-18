@@ -3,7 +3,6 @@ package br.com.zup.zupnancas.model;
 import br.com.zup.zupnancas.Enum.StatusEnum;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "contas")
@@ -19,14 +18,10 @@ public class Conta {
     private String descricao;
     private LocalDate dataDeEntrada;
     private LocalDate dataDeVencimento;
-
     private StatusEnum statusEnum;
 
     @ManyToOne
     private Saldo saldo;
-
-    @ManyToMany
-    private List<Categoria> categoria;
 
     public Conta() {
     }
@@ -85,13 +80,5 @@ public class Conta {
 
     public void setSaldo(Saldo saldo) {
         this.saldo = saldo;
-    }
-
-    public List<Categoria> getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(List<Categoria> categoria) {
-        this.categoria = categoria;
     }
 }
